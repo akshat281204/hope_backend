@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 // ✅ Replace this with your actual project ID
 const projectId = "hope-paaf";
 
-// ✅ Use forward slashes or escaped backslashes
-const sessionClient = new dialogflow.SessionsClient({
-  keyFilename: "C:/Users/Akshat/Desktop/HOPE_BACKEND/hope-paaf-f3d6075c75e3.json"
-});
+// ✅ Load service account credentials from environment variable
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
+
+const sessionClient = new dialogflow.SessionsClient({ credentials });
 
 app.post("/chat", async (req, res) => {
   const message = req.body.message;
