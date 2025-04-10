@@ -8,10 +8,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ Replace this with your actual project ID
 const projectId = "hope-paaf";
 
-// ✅ Load service account credentials from environment variable
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
 
 const sessionClient = new dialogflow.SessionsClient({ credentials });
